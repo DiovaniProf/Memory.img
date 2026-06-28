@@ -25,7 +25,6 @@ function mostrarTelaInicial() {
 function mostrarTelaJogo() {
   telaInicial.classList.remove("ativa");
   telaJogo.classList.add("ativa");
-
   iniciarJogo();
 }
 
@@ -46,7 +45,7 @@ function iniciarJogo() {
 function prepararCartas() {
   const cartas = document.querySelectorAll(".carta");
 
-  cartas.forEach(carta => {
+  cartas.forEach((carta) => {
     carta.classList.remove("virada");
     carta.classList.remove("encontrada");
 
@@ -58,15 +57,17 @@ function prepararCartas() {
 function embaralharCartas() {
   const cartas = Array.from(tabuleiro.children);
 
-  cartas.sort(() => Math.random() - 0.5);
+  for (let i = cartas.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cartas[i], cartas[j]] = [cartas[j], cartas[i]];
+  }
 
-  cartas.forEach(carta => {
-    tabuleiro.appendChild(carta);
-  });
+  cartas.forEach((carta) => tabuleiro.appendChild(carta));
 }
 
 function virarCarta() {
   if (bloqueio) return;
+  if (this === primeiraCarta) return;
   if (this.classList.contains("virada")) return;
   if (this.classList.contains("encontrada")) return;
 
@@ -78,7 +79,6 @@ function virarCarta() {
   }
 
   segundaCarta = this;
-
   tentativas++;
   tentativasTexto.textContent = tentativas;
 
@@ -86,28 +86,25 @@ function virarCarta() {
 }
 
 function verificarPar() {
-  const parPrimeiraCarta = primeiraCarta.dataset.par;
-  const parSegundaCarta = segundaCarta.dataset.par;
+  const parPrimeira = primeiraCarta.dataset.par;
+  const parSegunda = segundaCarta.dataset.par;
 
-  if (parPrimeiraCarta === parSegundaCarta) {
+  if (parPrimeira === parSegunda) {
     primeiraCarta.classList.add("encontrada");
     segundaCarta.classList.add("encontrada");
 
     paresEncontrados++;
-
     limparSelecao();
 
     if (paresEncontrados === totalDePares) {
       mensagem.textContent = `Parabéns! Você concluiu o jogo em ${tentativas} tentativas.`;
     }
-
   } else {
     bloqueio = true;
 
     setTimeout(() => {
       primeiraCarta.classList.remove("virada");
       segundaCarta.classList.remove("virada");
-
       limparSelecao();
     }, 1000);
   }

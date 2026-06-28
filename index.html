@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Jogo da Memória - Unidades</title>
-
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
   <main class="app">
 
     <!-- TELA INICIAL -->
     <section id="telaInicial" class="tela tela-inicial ativa">
-
       <div class="conteudo-inicial">
 
         <div class="texto-inicial">
@@ -28,180 +24,170 @@
           </p>
         </div>
 
-        <!-- PREVIEW DA TELA INICIAL -->
+        <!-- PREVIEW -->
         <div class="preview-cartas">
-
           <div class="carta-preview">
-            <img src="imagens/unidade01.png" alt="Imagem unidade 01">
+            <img src="imagens/unidade01.png" alt="Imagem unidade 01" />
           </div>
 
           <div class="carta-preview carta-preview-centro">
-            5 Pares
+            <span>5 Pares</span>
           </div>
 
           <div class="carta-preview">
-            <img src="imagens/unidade10.png" alt="Imagem unidade 10">
+            <img src="imagens/unidade10.png" alt="Imagem unidade 10" />
           </div>
-
         </div>
 
-        <button id="btnComecar" class="botao-principal">
-          Começar jogo
-        </button>
-
+        <button id="btnComecar" class="botao-principal">Começar jogo</button>
       </div>
-
     </section>
-
 
     <!-- TELA DO JOGO -->
     <section id="telaJogo" class="tela tela-jogo">
-
       <header class="cabecalho-jogo">
-
-        <div>
+        <div class="titulos-jogo">
           <h1>Jogo da Memória</h1>
           <h2>Unidades de Aprendizagem</h2>
         </div>
 
         <div class="painel">
-
           <div class="info">
             Tentativas: <span id="tentativas">0</span>
           </div>
 
           <button id="reiniciar">Reiniciar</button>
           <button id="voltarInicio">Início</button>
-
         </div>
-
       </header>
 
       <div id="mensagem" class="mensagem"></div>
 
-      <!-- TABULEIRO DO JOGO -->
+      <!-- ÁREA DO TABULEIRO -->
       <section class="area-tabuleiro">
+        <div id="tabuleiro" class="tabuleiro">
 
-        <div class="tabuleiro" id="tabuleiro">
-
-          <!-- PAR 1: unidade01 + unidade02 -->
+          <!-- PAR 1 -->
           <div class="carta" data-par="1">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade01.png" alt="Imagem unidade 01">
+              <img src="imagens/unidade01.png" alt="Imagem unidade 01" />
             </div>
           </div>
 
           <div class="carta" data-par="1">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade02.png" alt="Imagem unidade 02">
+              <img src="imagens/unidade02.png" alt="Imagem unidade 02" />
             </div>
           </div>
 
-
-          <!-- PAR 2: unidade03 + unidade04 -->
+          <!-- PAR 2 -->
           <div class="carta" data-par="2">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade03.png" alt="Imagem unidade 03">
+              <img src="imagens/unidade03.png" alt="Imagem unidade 03" />
             </div>
           </div>
 
           <div class="carta" data-par="2">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade04.png" alt="Imagem unidade 04">
+              <img src="imagens/unidade04.png" alt="Imagem unidade 04" />
             </div>
           </div>
 
-
-          <!-- PAR 3: unidade05 + unidade06 -->
+          <!-- PAR 3 -->
           <div class="carta" data-par="3">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade05.png" alt="Imagem unidade 05">
+              <img src="imagens/unidade05.png" alt="Imagem unidade 05" />
             </div>
           </div>
 
           <div class="carta" data-par="3">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade06.png" alt="Imagem unidade 06">
+              <img src="imagens/unidade06.png" alt="Imagem unidade 06" />
             </div>
           </div>
 
-
-          <!-- PAR 4: unidade07 + unidade08 -->
+          <!-- PAR 4 -->
           <div class="carta" data-par="4">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade07.png" alt="Imagem unidade 07">
+              <img src="imagens/unidade07.png" alt="Imagem unidade 07" />
             </div>
           </div>
 
           <div class="carta" data-par="4">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade08.png" alt="Imagem unidade 08">
+              <img src="imagens/unidade08.png" alt="Imagem unidade 08" />
             </div>
           </div>
 
-
-          <!-- PAR 5: unidade09 + unidade10 -->
+          <!-- PAR 5 -->
           <div class="carta" data-par="5">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade09.png" alt="Imagem unidade 09">
+              <img src="imagens/unidade09.png" alt="Imagem unidade 09" />
             </div>
           </div>
 
           <div class="carta" data-par="5">
             <div class="face verso">
-              <div class="simbolo-carta">IA</div>
+              <div class="conteudo-verso">
+                <span class="simbolo-carta">IA</span>
+              </div>
             </div>
-
             <div class="face frente">
-              <img src="imagens/unidade10.png" alt="Imagem unidade 10">
+              <img src="imagens/unidade10.png" alt="Imagem unidade 10" />
             </div>
           </div>
 
         </div>
-
       </section>
-
     </section>
 
   </main>
 
   <script src="script.js"></script>
-
 </body>
 </html>
