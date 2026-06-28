@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Jogo da Memória - Unidades</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- TELA INICIAL -->
+    <section id="telaInicial" class="tela tela-inicial ativa">
+
+      <div class="conteudo-inicial">
+
+        <div>
+          <h1>Jogo da Memória</h1>
+          <h2>Unidades de Aprendizagem</h2>
+
+          <p>
+            Encontre os pares corretos das imagens. O primeiro par é formado por
+            unidade1 e unidade2. O segundo par é formado por unidade3 e unidade4.
+          </p>
+        </div>
+
+        <div class="preview-cartas">
+
+          <div class="carta-preview">
+            <div class="icone-unidade">U1</div>
+          </div>
+
+          <div class="carta-preview carta-preview-frente">
+            2 Pares
+          </div>
+
+          <div class="carta-preview">
+            <div class="icone-unidade">U2</div>
+          </div>
+
+        </div>
+
+        <button id="btnComecar" class="botao-principal">
+          Começar jogo
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- TELA DO JOGO -->
+    <section id="telaJogo" class="tela tela-jogo">
+
+      <header class="cabecalho-jogo">
+
+        <div>
+          <h1>Jogo da Memória</h1>
+          <h2>Unidades de Aprendizagem</h2>
+        </div>
+
+        <div class="painel">
+
+          <div class="info">
+            Tentativas: <span id="tentativas">0</span>
+          </div>
+
+          <button id="reiniciar">Reiniciar</button>
+          <button id="voltarInicio">Início</button>
+
+        </div>
+
+      </header>
+
+      <div id="mensagem" class="mensagem"></div>
+
+      <section class="area-tabuleiro">
+        <div class="tabuleiro" id="tabuleiro"></div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
