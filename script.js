@@ -1,15 +1,15 @@
 const pares = [
   {
     id: 1,
-    cartaA: "img/unidade1.png",
-    cartaB: "img/unidade2.png",
+    cartaA: "imagens/unidade1.pnj",
+    cartaB: "imagens/unidade2.pnj",
     altA: "Unidade 1",
     altB: "Unidade 2"
   },
   {
     id: 2,
-    cartaA: "img/unidade3.png",
-    cartaB: "img/unidade4.png",
+    cartaA: "imagens/unidade3.pnj",
+    cartaB: "imagens/unidade4.pnj",
     altA: "Unidade 3",
     altB: "Unidade 4"
   }
