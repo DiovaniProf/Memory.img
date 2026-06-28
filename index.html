@@ -18,27 +18,30 @@
 
       <div class="conteudo-inicial">
 
-        <div>
+        <div class="texto-inicial">
           <h1>Jogo da Memória</h1>
           <h2>Unidades de Aprendizagem</h2>
 
           <p>
-            Observe as imagens, encontre os pares corretos e complete o desafio.
+            Encontre os pares corretos das imagens. 
+            O primeiro par é formado por <strong>unidade1</strong> e <strong>unidade2</strong>.
+            O segundo par é formado por <strong>unidade3</strong> e <strong>unidade4</strong>.
           </p>
         </div>
 
+        <!-- CARTAS DE PREVIEW DA TELA INICIAL -->
         <div class="preview-cartas">
 
           <div class="carta-preview">
-            <div class="simbolo-carta"></div>
+            <img src="imagens/unidade1.png" alt="Imagem unidade 1">
           </div>
 
-          <div class="carta-preview carta-preview-frente">
+          <div class="carta-preview carta-preview-centro">
             2 Pares
           </div>
 
           <div class="carta-preview">
-            <div class="simbolo-carta"></div>
+            <img src="imagens/unidade3.png" alt="Imagem unidade 3">
           </div>
 
         </div>
@@ -77,8 +80,64 @@
 
       <div id="mensagem" class="mensagem"></div>
 
+      <!-- TABULEIRO DO JOGO -->
       <section class="area-tabuleiro">
-        <div class="tabuleiro" id="tabuleiro"></div>
+
+        <div class="tabuleiro" id="tabuleiro">
+
+          <!-- PAR 1 -->
+          <div class="carta" data-par="1">
+
+            <div class="face verso">
+              <div class="simbolo-carta">IA</div>
+            </div>
+
+            <div class="face frente">
+              <img src="imagens/unidade1.png" alt="Imagem unidade 1">
+            </div>
+
+          </div>
+
+          <div class="carta" data-par="1">
+
+            <div class="face verso">
+              <div class="simbolo-carta">IA</div>
+            </div>
+
+            <div class="face frente">
+              <img src="imagens/unidade2.png" alt="Imagem unidade 2">
+            </div>
+
+          </div>
+
+
+          <!-- PAR 2 -->
+          <div class="carta" data-par="2">
+
+            <div class="face verso">
+              <div class="simbolo-carta">IA</div>
+            </div>
+
+            <div class="face frente">
+              <img src="imagens/unidade3.png" alt="Imagem unidade 3">
+            </div>
+
+          </div>
+
+          <div class="carta" data-par="2">
+
+            <div class="face verso">
+              <div class="simbolo-carta">IA</div>
+            </div>
+
+            <div class="face frente">
+              <img src="imagens/unidade4.png" alt="Imagem unidade 4">
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
     </section>

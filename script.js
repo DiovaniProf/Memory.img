@@ -1,36 +1,21 @@
-const pares = [
-  {
-    id: 1,
-    cartaA: "imagens/unidade1.pnj",
-    cartaB: "imagens/unidade2.pnj",
-    altA: "Unidade 1",
-    altB: "Unidade 2"
-  },
-  {
-    id: 2,
-    cartaA: "imagens/unidade3.pnj",
-    cartaB: "imagens/unidade4.pnj",
-    altA: "Unidade 3",
-    altB: "Unidade 4"
-  }
-];
-
 const telaInicial = document.getElementById("telaInicial");
 const telaJogo = document.getElementById("telaJogo");
+
 const btnComecar = document.getElementById("btnComecar");
 const btnVoltarInicio = document.getElementById("voltarInicio");
+const botaoReiniciar = document.getElementById("reiniciar");
 
 const tabuleiro = document.getElementById("tabuleiro");
 const tentativasTexto = document.getElementById("tentativas");
 const mensagem = document.getElementById("mensagem");
-const botaoReiniciar = document.getElementById("reiniciar");
 
-let cartas = [];
 let primeiraCarta = null;
 let segundaCarta = null;
 let bloqueio = false;
 let tentativas = 0;
 let paresEncontrados = 0;
+
+const totalDePares = 2;
 
 function mostrarTelaInicial() {
   telaJogo.classList.remove("ativa");
@@ -40,53 +25,43 @@ function mostrarTelaInicial() {
 function mostrarTelaJogo() {
   telaInicial.classList.remove("ativa");
   telaJogo.classList.add("ativa");
+
   iniciarJogo();
 }
 
-function criarCartas() {
-  cartas = [];
+function iniciarJogo() {
+  primeiraCarta = null;
+  segundaCarta = null;
+  bloqueio = false;
+  tentativas = 0;
+  paresEncontrados = 0;
 
-  pares.forEach(par => {
-    cartas.push({
-      id: par.id,
-      imagem: par.cartaA,
-      alt: par.altA
-    });
+  tentativasTexto.textContent = tentativas;
+  mensagem.textContent = "";
 
-    cartas.push({
-      id: par.id,
-      imagem: par.cartaB,
-      alt: par.altB
-    });
+  prepararCartas();
+  embaralharCartas();
+}
+
+function prepararCartas() {
+  const cartas = document.querySelectorAll(".carta");
+
+  cartas.forEach(carta => {
+    carta.classList.remove("virada");
+    carta.classList.remove("encontrada");
+
+    carta.removeEventListener("click", virarCarta);
+    carta.addEventListener("click", virarCarta);
   });
 }
 
 function embaralharCartas() {
-  cartas.sort(() => Math.random() - 0.5);
-}
+  const cartas = Array.from(tabuleiro.children);
 
-function montarTabuleiro() {
-  tabuleiro.innerHTML = "";
+  cartas.sort(() => Math.random() - 0.5);
 
   cartas.forEach(carta => {
-    const elementoCarta = document.createElement("div");
-
-    elementoCarta.classList.add("carta");
-    elementoCarta.dataset.id = carta.id;
-
-    elementoCarta.innerHTML = `
-      <div class="face verso">
-        <div class="simbolo-carta"></div>
-      </div>
-
-      <div class="face frente">
-        <img src="${carta.imagem}" alt="${carta.alt}">
-      </div>
-    `;
-
-    elementoCarta.addEventListener("click", virarCarta);
-
-    tabuleiro.appendChild(elementoCarta);
+    tabuleiro.appendChild(carta);
   });
 }
 
@@ -103,6 +78,7 @@ function virarCarta() {
   }
 
   segundaCarta = this;
+
   tentativas++;
   tentativasTexto.textContent = tentativas;
 
@@ -110,10 +86,10 @@ function virarCarta() {
 }
 
 function verificarPar() {
-  const idPrimeiraCarta = primeiraCarta.dataset.id;
-  const idSegundaCarta = segundaCarta.dataset.id;
+  const parPrimeiraCarta = primeiraCarta.dataset.par;
+  const parSegundaCarta = segundaCarta.dataset.par;
 
-  if (idPrimeiraCarta === idSegundaCarta) {
+  if (parPrimeiraCarta === parSegundaCarta) {
     primeiraCarta.classList.add("encontrada");
     segundaCarta.classList.add("encontrada");
 
@@ -121,7 +97,7 @@ function verificarPar() {
 
     limparSelecao();
 
-    if (paresEncontrados === pares.length) {
+    if (paresEncontrados === totalDePares) {
       mensagem.textContent = `Parabéns! Você concluiu o jogo em ${tentativas} tentativas.`;
     }
 
@@ -141,21 +117,6 @@ function limparSelecao() {
   primeiraCarta = null;
   segundaCarta = null;
   bloqueio = false;
-}
-
-function iniciarJogo() {
-  tentativas = 0;
-  paresEncontrados = 0;
-  primeiraCarta = null;
-  segundaCarta = null;
-  bloqueio = false;
-
-  tentativasTexto.textContent = tentativas;
-  mensagem.textContent = "";
-
-  criarCartas();
-  embaralharCartas();
-  montarTabuleiro();
 }
 
 btnComecar.addEventListener("click", mostrarTelaJogo);
