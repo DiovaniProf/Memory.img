@@ -15,7 +15,7 @@ let bloqueio = false;
 let tentativas = 0;
 let paresEncontrados = 0;
 
-const totalDePares = 2;
+const totalDePares = 5;
 
 function mostrarTelaInicial() {
   telaJogo.classList.remove("ativa");
